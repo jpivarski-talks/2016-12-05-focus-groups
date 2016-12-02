@@ -29,6 +29,9 @@
 \definecolor{commentgreen}{rgb}{0,0.6,0}
 \definecolor{stringmauve}{rgb}{0.58,0,0.82}
 
+\xdefinecolor{aug29}{rgb}{0,0.5,0}
+\xdefinecolor{aug31}{rgb}{0.6,0,0.9}
+
 \lstset{ %
   backgroundcolor=\color{white},      % choose the background color
   basicstyle=\ttfamily\small,         % size of fonts used for the code
@@ -79,95 +82,229 @@
 %  \tableofcontents
 %\end{frame}
 
-\section{Introduction}
-
 \begin{frame}{Introduction}
 
-\begin{itemize}
-  \item Your introduction goes here!
-  \item Use \texttt{itemize} to organize your main points.
-\end{itemize}
-
-\vskip 1cm
-
-\begin{block}{Examples}
-Some examples of commonly used commands and features are included, to help you get started.
+\begin{block}{\underline{What}}
+I conducted two directed conversations--- focus groups--- with young physicists to find out how they use software and what they like and dislike about it.
 \end{block}
 
+\begin{block}{\underline{Why}}
+Some comments made among software developers seemed, to me, to be wildly out of touch with physicists' concerns or reflected the concerns of physicists who are no longer actively analyzing data (fingers on the keyboard).
+
+\begin{uncoverenv}<2->
+\vspace{0.2 cm}
+\textcolor{darkblue}{But then, maybe I'm the one who's out of touch.}
+
+\vspace{0.2 cm}
+\textcolor{darkblue}{Is there a way to determine this objectively?}
+\end{uncoverenv}
+\end{block}
 \end{frame}
 
-\section{Some \LaTeX{} Examples}
+\begin{frame}{Sociological methods}
+\vspace{0.5 cm}
+\begin{block}{Talking to a friend who is now a sociologist:}
+\begin{description}
+\item[Me:] I'm thinking of creating a survey.
 
-\subsection{Tables and Figures}
+\item[Her:] You don't know enough to do a survey yet. Start with a focus group.
+\end{description}
+\end{block}
 
-\begin{frame}{Tables and Figures}
+\begin{block}{What's a focus group?}
+\begin{itemize}
+\item Closed-door, directed conversation, led by a neutral moderator whose primary goal is to keep a minority from dominating the group and to stay on topic.
+
+\item Transcribed: anonymous members' quotes are the data.
+
+\item Encourages exploration: goal is to learn something {\it qualitatively} new.
+
+\item To minimize group effect, do independent trials.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{My focus groups}
+
+\textcolor{aug29}{August 29: 5 physicists}, \textcolor{aug31}{August 31: 5 physicists} (color code)
 
 \begin{itemize}
-\item Use \texttt{tabular} for basic tables --- see Table~\ref{tab:widgets}, for example.
-\item You can upload a figure (JPEG, PNG or PDF) using the files menu. 
-\item To include it in your document, use the \texttt{includegraphics} command (see the comment below in the source code).
+\item Requirement to join: must be actively analyzing data.
+\item Happenstance: all late grad school or postdoc, CMS, at Fermilab's LPC. Self-selected from 15 invitations.
+
+\item 1 hour for 3 questions, only two covered (both sessions).
+\item I moderated, recorded, and later transcribed.
 \end{itemize}
-
-% Commands to include a figure:
-%\begin{figure}
-%\includegraphics[width=\textwidth]{your-figure's-file-name}
-%\caption{\label{fig:your-figure}Caption goes here.}
-%\end{figure}
-
-\begin{table}
-\centering
-\begin{tabular}{l|r}
-Item & Quantity \\\hline
-Widgets & 42 \\
-Gadgets & 13
-\end{tabular}
-\caption{\label{tab:widgets}An example table.}
-\end{table}
-
 \end{frame}
 
-\subsection{Mathematics}
+\begin{frame}{Questions}
+\vspace{0.5 cm}
+\begin{enumerate}
+\item What software do you use for analysis now? [subquestions]
 
-\begin{frame}{Readable Mathematics}
+\begin{uncoverenv}<2->
+\begin{itemize}
+\item {\it Extremely} varied, surprising to me and each other.
+\item However, ROOT was predominant: \textcolor{aug29}{``You can't escape it. Unless you end up dumping all your data to JSON or something, and then you're going to be sad.''}
+\end{itemize}
+\end{uncoverenv}
 
-Let $X_1, X_2, \ldots, X_n$ be a sequence of independent and identically distributed random variables with $\text{E}[X_i] = \mu$ and $\text{Var}[X_i] = \sigma^2 < \infty$, and let
-$$S_n = \frac{X_1 + X_2 + \cdots + X_n}{n}
-      = \frac{1}{n}\sum_{i}^{n} X_i$$
-denote their mean. Then as $n$ approaches infinity, the random variables $\sqrt{n}(S_n - \mu)$ converge in distribution to a normal $\mathcal{N}(0, \sigma^2)$.
+\item How much time do you spend on [long list, broken down]?
 
+\begin{uncoverenv}<3->
+\begin{itemize}
+\item Unable to estimate or rank: \textcolor{aug29}{``Everyone spends a lot of time on everything.''}
+\end{itemize}
+\end{uncoverenv}
+
+\item Would you learn a new language if [breakdown of pros/cons]?
+
+\begin{uncoverenv}<4->
+\begin{itemize}
+\item \textcolor{aug29}{3 answered}/\textcolor{aug31}{2 answered}.
+\item Open to Julia's 1-based indexing but not lack of classes.
+\item Mixed on metaprogramming and immutable data.
+\item Everyone drew the line at LISP syntax: \textcolor{aug31}{``I'd quit my job if I had to do that all day.''}
+\end{itemize}
+\end{uncoverenv}
+\end{enumerate}
 \end{frame}
 
-\subsection{Code}
+\begin{frame}{Unexpected variety in tools used}
+\vspace{0.5 cm}
+\textcolor{aug29}{``It depends on what you're doing. Recently, I'm using Excel and Pandas a lot because I'm monitoring the CMS run level 1 rate. So recently I'm using it quite a bit. It really depends on what the project is.''}
 
-\begin{frame}[fragile]{Readable Code}
+\vfill
+\vfill
+\textcolor{aug31}{``I use MATLAB fairly frequently for certain things.''}
+
+\vfill
+\begin{uncoverenv}<2->
+\begin{block}{}
+\small
+HiggsCombiner, ljmet, Theta, GGNtuple
+
+MATLAB, Mathematica, Excel, Pandas, Numpy, Bokeh, rootpy
+
+Bash, Perl, Awk
+
+Condor, Slurm, PBS, CRAB, LxBatch, GridControl (alternative to CRAB)
+
+Igprof, Valgrind, gdb
+
+NetBeans, Eclipse, XCode, Jenkins, Travis-CI
+
+in addition to standard MC generators, CMSSW, and ROOT.
+\end{block}
+\end{uncoverenv}
+\end{frame}
+
+\begin{frame}{Unexpected variety in tools used}
+\vspace{0.5 cm}
+\textcolor{aug29}{``Trying to get an IDE to cooperate with ROOT and CMSSW is just asking for pain and torture.''}
+
+\vfill
+\textcolor{aug31}{``I know of people from UCSB that use Eclipse. I always wanted to invest the time to try to do the same thing\ldots\ I tried four or five years ago--- that was painful. It failed for me.''}
+
+\vfill
+\textcolor{aug31}{``I used to use NetBeans\ldots\ but now I'm using XCode to see all of my codes.''}
+
+\vfill
+\textcolor{aug29}{``I have no simple ROOT/CMSSW example for continuous integration.''}
+\end{frame}
+
+\begin{frame}{ROOT (page 1)}
+\vspace{0.5 cm}
+\textcolor{aug31}{``The ROOT developers are a lot better at being software developers than I am, but I feel like there's a lot of bad design choices.''}
+
+\vfill
+\textcolor{aug31}{``I've sort of forgotten by now what a learning curve it was to learn ROOT. It has so many gotchas and so many pieces of the design you might not anticipate or ever think to do.''}
+
+\vfill
+\textcolor{aug31}{``I think also the consensus is that ROOT is very user-unfriendly.''}
+\end{frame}
+
+\begin{frame}{ROOT (page 2)}
+\vspace{0.5 cm}
+\textcolor{aug29}{``While it can be hard to find something, ROOT's implemented a {\it lot} of different data structures and functions.''}
+
+\vfill
+\textcolor{aug29}{``One thing I would like to say that I like about ROOT, in addition to having very fast and flexible data access, is that the developers are fairly responsive to analysis needs, at least in the medium term\ldots\ Of course, the downside is that the whole language is very poorly organized and the inheritance structure of most of the user interface classes doesn't make sense.''}
+
+\vfill
+\textcolor{aug29}{``Let's be clear: ROOT 6 is backward-incompatible even though they said it wasn't.''}
+
+\vfill
+\textcolor{aug29}{``ROOT is the most leaky program in existence.''}
+\end{frame}
+
+\begin{frame}{CMSSW (same pattern)}
+\vspace{0.5 cm}
+\textcolor{aug31}{``I'll start by saying I'm very thankful to the big team of developers that has developed CMSSW\ldots\ [praise]\ldots\ That being said, I'd love to not have to look at it myself.}
+
+\vfill
+\textcolor{aug31}{``I think something that might be consensus is that CMSSW or something like it is really required to funnel all of the knowledge from all the different parts of the collaboration into something runnable. But also that we try not to use it more than necessary.''}
+
+\vfill
+\textcolor{aug29}{``We don't use CMSSW and CRAB jobs; we use the FWLite version to just write C++.''}
+
+\vfill
+\textcolor{aug29}{``Most people aren't writing EDAnalyzers to do their final-step analysis.''}
+\end{frame}
+
+\begin{frame}{C++ and Python (Aug 31, mostly)}
+\vspace{0.5 cm}
+\textcolor{aug31}{``I like to use PyROOT because the development time to write code\ldots\ is very quick. Like, for me, it's probably an order of magnitude faster than C++.''}
+
+\vfill
+\textcolor{aug31}{``Something like Python is so much more attractive than something like C++.''}
+
+\vfill
+\textcolor{aug31}{``C++ is a language that invites mistakes.''}
+
+\vfill
+\textcolor{aug31}{``I'd say my C++ skills are somewhere in the collaboration--- not the worst, not the best--- but some of the code in CMSSW was written by people with way more appetite for C++ than I have. It can be hard to understand, just looking at the code, what the person was trying to achieve.''}
+\end{frame}
+
+\begin{frame}{Code performance}
+\vspace{0.5 cm}
+\textcolor{aug29}{``None of us are going to do a ten times speedup because we wrote better code.''}
+
+\begin{center}
+\begin{minipage}{0.9\linewidth}
+[I don't think this is true. I've found bigger factors than this in user's analysis code. Random twiddling might unearth factors of ten.]
+\end{minipage}
+\end{center}
+
+\vfill
+\textcolor{aug29}{``I've actually observed that generally whenever I publish a paper, the ntuples on which I base that paper are generally the {\it worst} version of the ntuples in terms of speed and size, compared to anything around there at either side in time, because it's getting worse and then I stop and rethink and slim it down, and then it gets worse again.''}
+\end{frame}
+
+\begin{frame}{Code performance}
+\vspace{0.5 cm}
+\textcolor{aug31}{``There's another way of thinking about it. Currently, if you have a big farm of computers working for you, how long are you going to wait for an analysis iteration? I would say it's like an hour. Maybe you can get through a handful of analysis iterations in a day. If it gets much slower than that, it's like, sort of an intolerable setup.''}
 
 \vspace{0.5 cm}
+\textcolor{aug31}{``An hour is an intolerable setup? Wow.''}
 
-Remember to mark the frame as ``fragile'' for verbatim.
-
-\begin{lstlisting}[language=c, frame=single]
-auto output = std::vector<Result>();
-for (i = 0;  i < nEvents;  i++) {   // C++ code!
-    event = events(i);
-    if (condition(event))
-        continue;
-    output.push_back(calculation(event));
-}
-\end{lstlisting}
-
-\begin{lstlisting}[language=python, frame=single]
-output = []                         # Python code!
-for event in events:
-    if condition(event):
-        continue
-    output.append(calculation(event))
-\end{lstlisting}
-
-\begin{lstlisting}[language=scala, frame=single]
-val output: Seq[Result] =           // Scala code!
-  events.filter(condition).map(calculation)
-\end{lstlisting}
-
+\vspace{0.5 cm}
+\textcolor{aug31}{``Or more. Yeah, if you need, like, two hours per iteration, that's pretty tough. In a day's work, you don't make four tests.''}
 \end{frame}
 
+\begin{frame}{Conclusions}
+\vspace{0.25 cm}
+\begin{itemize}\setlength{\itemsep}{0.5 cm}
+\item My questions definitely wouldn't have worked as a survey, but the focus group raised issues I hadn't been thinking about, as desired.
+
+\item General takeaway:
+\begin{itemize}
+\item Physicists are plastic: they'll adapt to any new thing if there's a point to it and it gets the job done.
+\item They're taking it upon themselves to look for time-saving tools.
+\item One group was strongly in favor of Python over C++, and the other didn't bring it up.
+\item They underestimate the possibility of code performance gains, though big factors would impact their lives.
+\end{itemize}
+
+\item I'm planning another focus group in January to get feedback on the design of my Femtocode project.
+\end{itemize}
+\end{frame}
 \end{document}
